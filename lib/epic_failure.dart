@@ -1,7 +1,10 @@
 library epic_failure;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+import 'package:equatable/equatable.dart';
+import 'package:meta/meta.dart';
+
+export 'src/failure_holder.dart';
+
+part 'src/failure.dart';
+part 'src/failure_probability.dart';
+part 'src/on_failure_thrown.dart';

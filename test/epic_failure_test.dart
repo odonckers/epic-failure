@@ -1,13 +1,24 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:epic_failure/epic_failure.dart';
+import 'package:test/test.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
-    expect(() => calculator.addOne(null), throwsNoSuchMethodError);
+  test('did encounter failure', () {
+    final failure = Failure(
+      name: 'Random',
+      priority: 5,
+      probabilities: const [
+        FailureProb(FormatException, code: 404),
+      ],
+      onFailure: (prob) {
+        print(prob.code);
+      },
+    );
+    FailureHolder.I.registerFailure(failure);
+
+    try {
+      throw FormatException();
+    } catch (e) {
+      expect(FailureHolder.I.encounteredFailure(e), failure);
+    }
   });
 }
