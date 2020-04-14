@@ -5,13 +5,13 @@ part 'failure_handler_impl.dart';
 abstract class FailureHandler {
   static FailureHandler _instance;
 
-  /// Access to the instance of `EpicFailure`
+  /// Access to the instance of `FailureHandler`
   static FailureHandler get instance {
     _instance ??= _FailureHandlerImpl();
     return _instance;
   }
 
-  /// Short form to access the instance of `EpicFailure`
+  /// Short form to access the instance of `FailureHandler`
   static FailureHandler get I => instance;
 
   /// Sets a default `Failure` that will be returned when there are no preset
