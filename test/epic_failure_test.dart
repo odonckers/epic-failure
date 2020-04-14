@@ -1,24 +1,33 @@
 import 'package:epic_failure/epic_failure.dart';
 import 'package:test/test.dart';
 
+enum _FailurePriority {
+  low,
+  medium,
+  high,
+}
+
 void main() {
   test('did encounter failure', () {
-    final failure = Failure(
-      name: 'Random',
-      priority: 5,
+    final failurePrint = FailurePrint<_FailurePriority>(
+      priority: _FailurePriority.low,
       probabilities: const [
         FailureProb(FormatException, code: 404),
       ],
-      onFailure: (prob) {
-        print(prob.code);
-      },
     );
-    FailureHolder.I.registerFailure(failure);
+    FailureHandler.I.registerFailurePrint(failurePrint);
 
     try {
       throw FormatException();
     } catch (e) {
-      expect(FailureHolder.I.encounteredFailure(e), failure);
+      print(FailureHandler.I.encounteredFailure(e));
+      expect(
+        FailureHandler.I.encounteredFailure(e),
+        const Failure(
+          priority: _FailurePriority.low,
+          probability: FailureProb(FormatException, code: 404),
+        ),
+      );
     }
   });
 }

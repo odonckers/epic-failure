@@ -1,18 +1,16 @@
 part of epic_failure;
 
-class Failure extends Equatable {
+class Failure<T> extends Equatable {
   final String name;
-  final int priority;
-  final List<FailureProb> probabilities;
-  final OnFailureThrown onFailure;
+  final T priority;
+  final FailureProb probability;
 
   const Failure({
     this.name,
-    @required this.priority,
-    @required this.probabilities,
-    this.onFailure,
+    this.priority,
+    this.probability,
   });
 
   @override
-  List<Object> get props => [name, priority, probabilities, onFailure];
+  List<Object> get props => [name, priority, probability];
 }
