@@ -1,6 +1,6 @@
 part of 'epic_failure_handler.dart';
 
-class _FailureHandlerImpl implements EpicFailureHandler {
+class _EpicFailureHandlerImpl implements EpicFailureHandler {
   EpicFailure _undeterminedFailure = const _UndeterminedFailure();
   List<EpicFailurePrint> _failurePrints = [];
 

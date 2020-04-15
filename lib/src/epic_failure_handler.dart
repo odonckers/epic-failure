@@ -7,7 +7,7 @@ abstract class EpicFailureHandler {
 
   /// Access to the instance of `FailureHandler`
   static EpicFailureHandler get instance {
-    _instance ??= _FailureHandlerImpl();
+    _instance ??= _EpicFailureHandlerImpl();
     return _instance;
   }
 
