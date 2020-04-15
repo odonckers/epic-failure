@@ -1,12 +1,12 @@
 part of epic_failure;
 
-class FailurePrint<T> extends Equatable {
+class EpicFailurePrint<T> extends Equatable {
   final String name;
   final T priority;
-  final List<FailureProb> probabilities;
+  final List<EpicFailureProb> probabilities;
   final OnFailureThrown onFailure;
 
-  const FailurePrint({
+  const EpicFailurePrint({
     this.name,
     @required this.priority,
     @required this.probabilities,

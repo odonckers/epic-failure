@@ -9,23 +9,23 @@ enum _FailurePriority {
 
 void main() {
   test('did encounter failure', () {
-    final failurePrint = FailurePrint<_FailurePriority>(
+    final failurePrint = EpicFailurePrint<_FailurePriority>(
       priority: _FailurePriority.low,
       probabilities: const [
-        FailureProb(FormatException, code: 404),
+        EpicFailureProb(FormatException, code: 404),
       ],
     );
-    FailureHandler.I.registerFailurePrint(failurePrint);
+    EpicFailureHandler.I.registerFailurePrint(failurePrint);
 
     try {
       throw FormatException();
     } catch (e) {
-      print(FailureHandler.I.encounteredFailure(e));
+      print(EpicFailureHandler.I.encounteredFailure(e));
       expect(
-        FailureHandler.I.encounteredFailure(e),
-        const Failure(
+        EpicFailureHandler.I.encounteredFailure(e),
+        const EpicFailure(
           priority: _FailurePriority.low,
-          probability: FailureProb(FormatException, code: 404),
+          probability: EpicFailureProb(FormatException, code: 404),
         ),
       );
     }

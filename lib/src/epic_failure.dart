@@ -1,11 +1,11 @@
 part of epic_failure;
 
-class Failure<T> extends Equatable {
+class EpicFailure<T> extends Equatable {
   final String name;
   final T priority;
-  final FailureProb probability;
+  final EpicFailureProb probability;
 
-  const Failure({
+  const EpicFailure({
     this.name,
     this.priority,
     this.probability,

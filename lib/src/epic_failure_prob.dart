@@ -1,10 +1,10 @@
 part of epic_failure;
 
-class FailureProb extends Equatable {
+class EpicFailureProb extends Equatable {
   final Type type;
   final num code;
 
-  const FailureProb(
+  const EpicFailureProb(
     this.type, {
     @required this.code,
   });

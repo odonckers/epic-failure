@@ -1,3 +1,3 @@
 part of epic_failure;
 
-typedef void OnFailureThrown(FailureProb prob);
+typedef void OnFailureThrown(EpicFailureProb prob);
