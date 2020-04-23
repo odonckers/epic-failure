@@ -29,6 +29,7 @@ import 'package:epic_failure/epic_failure.dart';
 
 enum FailurePriority {
   low,
+  high,
   epic,
 }
 
@@ -41,7 +42,7 @@ void main() {
       ],
     ),
     PredeterminedFailure<FailurePriority>(
-      priority: FailurePriority.epic,
+      priority: FailurePriority.high,
       codes: const [
         FailureCode(400, runtimeType: SuperScaryException),
         FailureCode(404, runtimeType: AnotherScaryException),
@@ -73,7 +74,7 @@ dz.Either<EpicFailure, String> hopefullyHelloWorld() {
   } catch (e, stack) {
     /* Will generate something that looks like this:
        EpicFailure(
-         priority: FailurePriority.epic,
+         priority: FailurePriority.high,
          code: FailureCode(400, runtimeType: SuperScaryException),
        ) */
     final epicFailure = FailureManager.I.generateEpicFailure(e, stack);
@@ -97,7 +98,6 @@ import 'package:epic_failure/epic_failure.dart';
 
 static const undeterminedFailure = EpicFailure(
   priority: FailurePriority.epic,
-  code: FailureCode(number: 0),
   name: 'undetermined failure',
 );
 
