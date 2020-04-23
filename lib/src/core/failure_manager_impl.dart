@@ -23,11 +23,12 @@ class _FailureManagerImpl implements FailureManager {
 
   @override
   EpicFailure generateEpicFailure(Object object, StackTrace stack) {
-    for (PredeterminedFailure predeterminedFailure in _predeterminedFailures)
-      for (FailureCode failureCode in predeterminedFailure.codes)
+    for (PredeterminedFailure predeterminedFailure in _predeterminedFailures) {
+      for (FailureCode failureCode in predeterminedFailure.codes) {
         if (object.runtimeType == failureCode.runtimeType) {
-          if (predeterminedFailure?.onFailure != null)
+          if (predeterminedFailure?.onFailure != null) {
             predeterminedFailure.onFailure(failureCode);
+          }
 
           return EpicFailure(
             priority: predeterminedFailure.priority,
@@ -35,6 +36,8 @@ class _FailureManagerImpl implements FailureManager {
             name: predeterminedFailure.name,
           );
         }
+      }
+    }
 
     return _undeterminedFailure;
   }

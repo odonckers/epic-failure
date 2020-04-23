@@ -1,6 +1,6 @@
 name: epic_failure
-description: A new Flutter package project.
-version: 0.1.0
+description: Allows the developer to easily define priorities for failures, error codes for individual errors, and finally generate an easy to use `EpicFailure` for any need without redundent code.
+version: 0.1.1
 homepage: https://github.com/odonckers/epic_failure
 
 environment:

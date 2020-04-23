@@ -1,6 +1,6 @@
 # epic_failure
 
-This package allows the developer to easily define priorities for failures, error codes for individual errors, and finally generate an easy to use `EpicFailure` for any need without redundent code.
+Allows the developer to easily define priorities for failures, error codes for individual errors, and finally generate an easy to use `EpicFailure` for any need without redundent code.
 
 ## Purpose
 
@@ -18,8 +18,7 @@ To use this plugin, add `epic_failure` as a dependency in your pubspec.yaml file
 
 ```yaml
 dependencies:
-  epic_failure:
-    git: git@github.com:odonckers/epic_failure.git
+  epic_failure: ^0.1.1
 ```
 
 At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at somepoint may or may not happen, as a `PredeterminedFailure` in the `FailureManager.instance` (or `FailureManager.I` for short).
