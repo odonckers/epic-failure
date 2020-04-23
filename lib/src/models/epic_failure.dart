@@ -2,15 +2,15 @@ part of epic_failure;
 
 class EpicFailure<T> extends Equatable {
   final T priority;
-  final EpicCheck checkpoint;
+  final FailureCode code;
   final String name;
 
   const EpicFailure({
     this.priority,
-    this.checkpoint,
+    this.code,
     this.name,
   });
 
   @override
-  List<Object> get props => [priority, checkpoint, name];
+  List<Object> get props => [priority, code, name];
 }

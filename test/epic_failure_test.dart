@@ -1,7 +1,7 @@
 import 'package:epic_failure/epic_failure.dart';
 import 'package:test/test.dart';
 
-enum _FailurePriority {
+enum FailurePriority {
   low,
   medium,
   high,
@@ -9,23 +9,21 @@ enum _FailurePriority {
 
 void main() {
   test('did encounter failure', () {
-    final failurePrint = EpicPrint<_FailurePriority>(
-      priority: _FailurePriority.low,
-      checks: const [
-        EpicCheck(FormatException, code: 404),
-      ],
-    );
-    EpicSitter.I.registerFailurePrint(failurePrint);
+    const failureCode = FailureCode(404, runtimeType: FormatException);
+
+    FailureManager.I.registerPredeterminedFailures([
+      PredeterminedFailure<FailurePriority>(
+        priority: FailurePriority.low,
+        codes: const [failureCode],
+      ),
+    ]);
 
     try {
       throw FormatException();
     } catch (e, stack) {
       expect(
-        EpicSitter.I.checkOn(e, stack),
-        const EpicFailure(
-          priority: _FailurePriority.low,
-          checkpoint: EpicCheck(FormatException, code: 404),
-        ),
+        FailureManager.I.generateEpicFailure(e, stack),
+        const EpicFailure(priority: FailurePriority.low, code: failureCode),
       );
     }
   });

@@ -1,3 +1,3 @@
 part of epic_failure;
 
-typedef void OnFailureThrown(EpicCheck check);
+typedef void OnFailureThrown(FailureCode code);
