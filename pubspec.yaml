@@ -1,14 +1,14 @@
 name: epic_failure
 description: A new Flutter package project.
 version: 0.1.0
-author: Owen Donckers
-homepage:
+homepage: https://github.com/odonckers/epic_failure
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   equatable: ^1.1.1
+  meta: ^1.1.8
 
 dev_dependencies:
   build_runner: any
