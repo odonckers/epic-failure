@@ -22,7 +22,7 @@ dependencies:
     git: git@github.com:odonckers/epic_failure.git
 ```
 
-At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at somepoint may or may not happen, as a `PredeterminedFailure` in the `EpicHandler.instance` (or `EpicHandler.I` for short).
+At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at somepoint may or may not happen, as a `PredeterminedFailure` in the `FailureManager.instance` (or `FailureManager.I` for short).
 
 ```dart
 import 'package:epic_failure/epic_failure.dart';
@@ -90,7 +90,21 @@ hopefullyHelloWorld().fold(
 
 Hopefully you will get `'Hello World!'` as the return, but if not you will get the priority of the failure, the code, and even the `runtimeType`.
 
-Anytime there is a new `Exception` or `Error` that you as the developer expect to get, you can add that as a registered `PredeterminedFailure` to the `EpicHandler`.
+Anytime there is a new `Exception` or `Error` that you as the developer expect to get, you can add that as a registered `PredeterminedFailure` to the `FailureManager`. But what if there is a type thrown that you don't have `PredeterminedFailure` for? You can set the undetermined failure by using the function, `FailureManager.I.setUndeterminedFailure`. This lets you pass in your own custom `EpicFailure` that will be returned if nothing you preset is found.
+
+```dart
+import 'package:epic_failure/epic_failure.dart';
+
+static const undeterminedFailure = EpicFailure(
+  priority: FailurePriority.epic,
+  code: FailureCode(number: 0),
+  name: 'undetermined failure',
+);
+
+FailureHandler.I.setUndeterminedFailure(undeterminedFailure);
+```
+
+And that is the grand tour of `epic_failure`!
 
 ## Disclaimer
 
