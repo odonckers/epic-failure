@@ -4,7 +4,7 @@ Allows the developer to easily define priorities for failures, error codes for i
 
 ## Purpose
 
-Idealy this package surves two purposes:
+Idealy this package surves three purposes:
 
 1. Get rid of reduntent clutter code.
 2. Hand exception and error recognition off to an outside source without losing control.
@@ -18,7 +18,7 @@ To use this plugin, add `epic_failure` as a dependency in your pubspec.yaml file
 
 ```yaml
 dependencies:
-  epic_failure: ^0.1.1
+  epic_failure: ^0.1.2
 ```
 
 At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at somepoint may or may not happen, as a `PredeterminedFailure` in the `FailureManager.instance` (or `FailureManager.I` for short).

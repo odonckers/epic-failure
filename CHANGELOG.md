@@ -1,4 +1,6 @@
-# Changelog
+## [0.1.2] - Added example directory and file
+
+- Creates a simple example/example.dart that will give developers a simple start.
 
 ## [0.1.1] - Updates to bring pub.dev scoring up
 
