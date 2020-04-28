@@ -10,25 +10,26 @@ class KindaEvilError extends Error {}
 class SuperThreatfulException {}
 
 void main() {
-  FailureManager.I.registerPredeterminedFailures([
-    PredeterminedFailure<FailurePriority>(
+  FailureManager.I
+    ..register(
       priority: FailurePriority.low,
       codes: const [
-        FailureCode(100, runtimeType: KindaEvilError),
+        FailureCode(100, runtimeType: FormatException),
+        FailureCode(101, runtimeType: KindaEvilError),
       ],
-    ),
-    PredeterminedFailure<FailurePriority>(
+    )
+    ..register(
       priority: FailurePriority.epic,
       codes: const [
         FailureCode(200, runtimeType: SuperThreatfulException),
       ],
-    ),
-  ]);
+    );
 
   try {
     throw SuperThreatfulException();
   } catch (e, stack) {
-    final epicFailure = FailureManager.I.generateEpicFailure(e, stack);
+    final epicFailure =
+        FailureManager.I.generateEpicFailure<FailurePriority>(e, stack);
     print(epicFailure);
   }
 }

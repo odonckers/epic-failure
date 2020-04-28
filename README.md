@@ -21,7 +21,7 @@ dependencies:
   epic_failure: ^[current version]
 ```
 
-At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at some point may or may not happen, as a `PredeterminedFailure` in the `FailureManager.instance` (or `FailureManager.I` for short).
+At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at some point may or may not happen, in the `FailureManager.instance` (or `FailureManager.I` for short).
 
 ```dart
 import 'package:epic_failure/epic_failure.dart';
@@ -33,21 +33,20 @@ enum FailurePriority {
 }
 
 void main() {
-  FailureManager.I.registerPredeterminedFailures([
-    PredeterminedFailure<FailurePriority>(
+  FailureManager.I
+    ..register<FailurePriority>(
       priority: FailurePriority.low,
       codes: const [
         FailureCode(100, runtimeType: WrongInputError),
       ],
-    ),
-    PredeterminedFailure<FailurePriority>(
+    )
+    ..register<FailurePriority>(
       priority: FailurePriority.high,
       codes: const [
         FailureCode(400, runtimeType: SuperScaryException),
         FailureCode(404, runtimeType: AnotherScaryException),
       ],
-    ),
-  ]);
+    );
 
   runApp(MyApp());
 }
@@ -71,12 +70,15 @@ dz.Either<EpicFailure, String> hopefullyHelloWorld() {
 
     return dz.Right('Hello World!');
   } catch (e, stack) {
-    /* Will generate something that looks like this:
-       EpicFailure(
-         priority: FailurePriority.high,
-         code: FailureCode(400, runtimeType: SuperScaryException),
-       ) */
-    final epicFailure = FailureManager.I.generateEpicFailure(e, stack);
+    /// Will generate something that looks like this:
+    ///
+    /// ```dart
+    /// EpicFailure<FailurePriority>(
+    ///   priority: FailurePriority.high,
+    ///   code: FailureCode(400, runtimeType: SuperScaryException),
+    /// )
+    /// ```
+    final epicFailure = FailureManager.I.generateEpicFailure<FailurePriority>(e, stack);
 
     return dz.Left(epicFailure);
   }

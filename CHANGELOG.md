@@ -1,3 +1,8 @@
+## [0.2.0] - Registering overhaul and pedantic support
+
+- Replaced `registerPredeterminedFailure()` and `registerPredeterminedFailures()` with the singular `register()` that can be stacked.
+- Added pedantic support and formatting in custom analysis_options.
+
 ## [0.1.3] - README updates
 
 - Spelling and grammar mistakes fixed in the README.

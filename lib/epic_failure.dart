@@ -9,4 +9,3 @@ part 'src/functions/on_failure_thrown.dart';
 
 part 'src/models/epic_failure.dart';
 part 'src/models/failure_code.dart';
-part 'src/models/predetermined_failure.dart';
