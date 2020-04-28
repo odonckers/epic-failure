@@ -1,16 +1,16 @@
 # epic_failure
 
-Allows the developer to easily define priorities for failures, error codes for individual errors, and finally generate an easy to use `EpicFailure` for any need without redundent code.
+Allows the developer to easily define priorities for failures, error codes for individual errors, and finally generate an easy to use `EpicFailure` for any need without redundant code.
 
 ## Purpose
 
-Idealy this package surves three purposes:
+Ideally this package serves three purposes:
 
-1. Get rid of reduntent clutter code.
+1. Get rid of redundant clutter code.
 2. Hand exception and error recognition off to an outside source without losing control.
 3. Overall speed up development time.
 
-Dart has two basic types of failures, also known as exceptions and errors. Anytime the base code of an app is broken, some type of class extending `Exception` is thrown, and in the case there is user error, an `Error` is thrown. These are usually thrown inside of a `try {} catch {}` block that you created at somepoint inside of your core code. What you do with the caught `Error` or `Exception` is up to you and can make you write redundent code that you probably don't know what to do with. `epic_failure` will fill this unknown area.
+Dart has two basic types of failures, also known as exceptions and errors. Anytime the base code of an app is broken, some type of class extending `Exception` is thrown, and in the case there is user error, an `Error` is thrown. These are usually thrown inside of a `try {} catch {}` block that you created at some point inside of your core code. What you do with the caught `Error` or `Exception` is up to you and can make you write redundant code that you probably don't know what to do with. `epic_failure` will fill this unknown area.
 
 ## Usage
 
@@ -18,10 +18,10 @@ To use this plugin, add `epic_failure` as a dependency in your pubspec.yaml file
 
 ```yaml
 dependencies:
-  epic_failure: ^0.1.2
+  epic_failure: ^[current version]
 ```
 
-At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at somepoint may or may not happen, as a `PredeterminedFailure` in the `FailureManager.instance` (or `FailureManager.I` for short).
+At the beginning of your `main()` function you will need to register all predetermined failures, so instances that you know at some point may or may not happen, as a `PredeterminedFailure` in the `FailureManager.instance` (or `FailureManager.I` for short).
 
 ```dart
 import 'package:epic_failure/epic_failure.dart';
@@ -107,4 +107,4 @@ And that is the grand tour of `epic_failure`!
 
 ## Disclaimer
 
-This project is being actively worked on and much is to be added. All of the above code is working properly, but I do hope to add more in the comming months or more.
+This project is being actively worked on and much is to be added. All of the above code is working properly, but I do hope to add more in the coming months or more.

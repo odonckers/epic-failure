@@ -1,3 +1,7 @@
+## [0.1.3] - README updates
+
+- Spelling and grammar mistakes fixed in the README.
+
 ## [0.1.2] - Added example directory and file
 
 - Creates a simple example/example.dart that will give developers a simple start.
@@ -12,7 +16,3 @@
 
 - Functioning `FailureManager` to register predetermined failures and generate `EpicFailure`s.
 - README.md with example code for use.
-
-## [0.0.1] - TODO: Add release date
-
-- TODO: Describe initial release.

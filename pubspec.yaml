@@ -1,6 +1,6 @@
 name: epic_failure
 description: Easily define priorities and error codes for failures used to generate an easy to use failure class.
-version: 0.1.2
+version: 0.1.3
 homepage: https://github.com/odonckers/epic_failure
 
 environment:
