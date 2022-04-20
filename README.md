@@ -109,4 +109,4 @@ And that is the grand tour of `epic_failure`!
 
 ## Disclaimer
 
-This project is being actively worked on and much is to be added. All of the above code is working properly, but I do hope to add more in the coming months or more.
+This project is not being actively worked on and much is missing. All of the above code is working properly.
